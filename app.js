@@ -7,6 +7,7 @@ var bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
 var msgRouter = require('./routes/msg');
+var emtRouter = require('./routes/emt');
 
 var app = express();
 
