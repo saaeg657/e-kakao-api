@@ -7,6 +7,8 @@ var bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
 var msgRouter = require('./routes/msg');
+var setRouter = require('./routes/set');
+var eomRouter = require('./routes/eom');
 
 var app = express();
 
@@ -34,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/msg', msgRouter);
+app.use('/set', setRouter);
+app.use('/eom', eomRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,5 +54,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(3001, () => {
+  console.log('server on')
+})
 
 module.exports = app;
